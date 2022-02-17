@@ -1,0 +1,4 @@
+.grid.gallery-layout{
+    grid-template-columns: 100px 100px 100px 100px;
+    gap: 5px;
+}
