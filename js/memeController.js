@@ -1,97 +1,157 @@
 'use strict'
 
-var isLineDown = false
-var isLineLeft = true
-var isLineCenter =false
+var isSwitch = false
+ 
 var gFontSize = 40
 
-function onAddTxt() {
-
-}
-
-function onSaveStep(){
-
-}
-
-function renderMeme(img) {
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    gLastCtx = gCanvas.getContext('2d')
-}
-
-
-
 function getColor1() {
-    var color = document.querySelector('input[name=color1]').value
-    return color
+    return document.querySelector('input[name=color1]').value
 }
 
 function getColor2() {
-    var color = document.querySelector('input[name=color2]').value
-    return color
+    return document.querySelector('input[name=color2]').value
 }
 
 function resizeCanvas() {
     var elContainer = document.querySelector('.canvas-container')
     gCanvas.width = elContainer.offsetWidth
-    gCanvas.height = elContainer.offsetHeight
-}
-
-function drawTxt(txt,x=10 ,y=100){
-    y = isLineDown? 350: 100;
-    x = isLineLeft? 10: 350;
-    if(isLineCenter){
-        x = 100
-        y = 150
-    }
-
-    gCtx.font = `${gFontSize}px Impact`;
-    gCtx.fillStyle = getColor1();
-    gCtx.strokeStyle = getColor2();
-    gCtx.fillText(txt, x, y);
-    gCtx.strokeText(txt, x, y);
+    // gCanvas.height = elContainer.offsetHeight
 }
 
 function onClearCanvas(){
-    clearCanvas()
-    var meme = getMeme()
-    gCtx.drawImage(meme, 0, 0, gCanvas.width, gCanvas.height);
+    gMeme.lines.pop()
+    document.querySelector('input[name=txt-mem]').value = ''
+    renderMeme(gMeme)
     focusInput()
 }
 
-function onClickFontSize(bool, el){
-    if(bool) gFontSize = gFontSize + 3
-    else gFontSize = gFontSize - 3
+function ondIncrFontSize(el){
+    if(!gLine) return
+    gLine.fontSize = gSets.fontSize = gSets.fontSize+10
+    document.querySelector('.font-size').innerText = gSets.fontSize
+
+    renderMeme(gMeme)
+    drawLine(gLine)
     setBorder(el)
-    document.querySelector('.font-size').innerText = gFontSize
     focusInput()
+    
 }
 
-// Switch
+function onDcrsFontSize(el){
+    if(!gLine) return
+    gLine.fontSize =  gSets.fontSize = gSets.fontSize-10
+    document.querySelector('.font-size').innerText = gSets.fontSize
+    renderMeme(gMeme)
+    drawLine(gLine)
+    setBorder(el)
+    focusInput()
+    document.querySelector('.font-size').innerText = gSets.fontSize
+}
+
 function onClickSwitch(el){
-    isLineDown = !isLineDown
+    if(!gLine) return
+    // debugger
+    renderCanvas()
+    if(isSwitch){
+        gLine.y = gSets.y = 35
+        isSwitch = !isSwitch
+    }
+    else{
+        gLine.y = gSets.y = 384 
+        isSwitch = !isSwitch
+    }
+    renderMeme(gMeme)
+    drawLine(gLine)
     setBorder(el)
     focusInput()
 }
 
 function onClickLeft(el){
-    isLineLeft = true
-    isLineCenter = false
+    if(!gLine) return
+    gLine.x = gSets.x = gSets.x-10
+    renderMeme(gMeme)
+    drawLine(gLine)
     setBorder(el)
     focusInput()
 }
 
 function onClickRight(el){
-    isLineLeft = false
-    isLineCenter = false
-    isLineCenter = false
+    if(!gLine) return
+    gLine.x = gSets.x = gSets.x+15 
+    renderMeme(gMeme)
+    drawLine(gLine)
     setBorder(el)
     focusInput()
 }
 
-function onClickCenter(el){
-    isLineCenter = true
-    isLineLeft = false
+function onClickUp(el){
+    if(!gLine) return
+    gLine.y = gSets.y = gSets.y-15
+    renderMeme(gMeme)
+    drawLine(gLine)
     setBorder(el)
+    focusInput()
+}
+
+function onClickDown(el){
+    if(!gLine) return
+    gLine.y = gSets.y = gSets.y+15
+    renderMeme(gMeme)
+    drawLine(gLine)
+    setBorder(el)
+    focusInput()
+}
+
+function onAddLine(){
+    var input = document.querySelector('input[name=txt-mem]').value
+    if(!input) return
+    if(!gLine) return
+    gMeme.lines.push(gLine)
+    renderMeme(gMeme)
+    focusInput()
+    document.querySelector('input[name=txt-mem]').value = ''
+}
+
+function onAlignL(el) {
+    if(!gLine) return
+    gLine.x = gSets.x = 5
+    renderMeme(gMeme)
+    drawLine(gLine)
+    setBorder(el)
+    focusInput()
+}
+
+function onAlignR(el) {
+    if(!gLine) return
+    gLine.x = gSets.x = 234
+    renderMeme(gMeme)
+    drawLine(gLine)
+    setBorder(el)
+    focusInput()
+}
+
+function onAlignC(el) {
+    if(!gLine) return
+    gLine.x = gSets.x = 128
+    gLine.y = gSets.y = 168
+    renderMeme(gMeme)
+    drawLine(gLine)
+    setBorder(el)
+    focusInput()
+}
+
+function onClickColor1(){
+    var color = document.querySelector('input[name=color1]')
+    gLine.fillStyle = gSets.fillStyle = color.value
+    renderMeme(gMeme)
+    drawLine(gLine)
+    focusInput()
+}
+function onClickColor2(){
+    var color = document.querySelector('input[name=color2]')
+    gLine.strokeStyle = gSets.strokeStyle = color.value
+    renderMeme(gMeme)
+    drawLine(gLine)
     focusInput()
 }
 
@@ -104,19 +164,6 @@ function setBorder(el){
 }
 
 function focusInput(){
-    document.querySelector('input[name=txt-mem]').value = ''
     document.querySelector('input[name=txt-mem]').focus()
 }
 
-function saveCanvasCtx() {
-    gCurrCtx = gCanvas.getContext('2d')
-}
-
-
-
-
-////grab the context from your destination canvas
-// var destCtx = destinationCanvas.getContext('2d');
-
-////call its drawImage() function passing it the source canvas directly
-// destCtx.drawImage(sourceCanvas, 0, 0);

@@ -1,34 +1,6 @@
 'use strict'
-// var gKeywordSearchCountMap = {'funny': 12,'cat': 16, 'baby': 2}
-// var gMems = [{id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat']}];
-
-function getMemes(){
-  var imgs = []
-  for(var i = 0; i < imgCount; i++){
-      imgs.push(
-          {
-              id: makeId(),
-              url: `img\/images\/${imgIdx++}.jpg`,
-              keywords:[]
-          }
-      )
-  }
-  return imgs
-}
-
 function getMeme(){
-  return gCurrMeme
-}
-
-function setLineTxt(){
-  gLastCtx = gCanvas.getContext('2d')
-  var inputEl = document.querySelector('input[name=txt-mem]')
-  inputEl.focus()
-  inputEl.addEventListener('input', (e)=> {
-      var txt = e.target.value
-      drawTxt(txt)
-
-  })
+  return gMeme
 }
 
 function clearCanvas() {
@@ -36,13 +8,13 @@ function clearCanvas() {
 }
 
 function downloadImg(elLink) {
-  var imgContent = gElCanvas.toDataURL('image/jpeg')
+  var imgContent = gCanvas.toDataURL('image/jpeg')
   elLink.href = imgContent
 }
 
 // The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
 function onImgInput(ev) {
-  loadImageFromInput(ev, renderImg)
+  loadImageFromInput(ev, renderImg2)
 }
 
 function loadImageFromInput(ev, onImageReady) {
@@ -61,7 +33,7 @@ function loadImageFromInput(ev, onImageReady) {
   reader.readAsDataURL(ev.target.files[0])
 }
 
-function renderImg(img) {
+function renderImg2(img) {
   gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
 
@@ -76,7 +48,8 @@ function uploadImg() {
       document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
 
       document.querySelector('.share-container').innerHTML = `
-      <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+      <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}"
+       title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
          Share   
       </a>`
   }

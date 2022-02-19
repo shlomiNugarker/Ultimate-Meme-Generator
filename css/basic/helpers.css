@@ -2,6 +2,9 @@
 .flex {
     display: flex;
 }
+.grid {
+    display: grid;
+}
 .flex.space-between {
     justify-content: space-between;
 }
@@ -12,13 +15,22 @@
 .hide {
     opacity: 0;
     position: absolute;
-    left: -100vw;
+    left: -200vw;
 }
 .clean-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.grid {
-    display: grid;
+.white-bg{
+    background-color: white;
+}
+.orange-bg {
+    background-color: var(--clr1);
+}
+.hide{
+    opacity: 0;
+    /* display: none; */
+    position: absolute;
+    left: -500vw;
 }

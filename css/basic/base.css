@@ -1,24 +1,49 @@
 * {
     box-sizing: border-box;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    margin: 0;
 }
-
 html{
     font-size: 16px;
 }
 body {
+    font-family:  monstserrat-reg;
     margin: 0;
-    font-size: 0.875rem;
-    background-color: bisque;
+    background-color: var(--clr2);
 }
-
-
+img {
+    width: 100%;
+}
 input {
-    display: block;
+    display: inline-block;
+    padding: 5px;
 }
-
 button {
     border: none;
     margin: 3px;
     border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+    
 }
+
+li{
+    font-size: 1.1875rem;
+    list-style-type: none;
+    padding: 0 5px;
+}
+a{
+    text-decoration: none;
+}
+
+.person-img{
+    border-radius: 50%;
+    width: 320px;
+    object-fit: cover;
+    margin: 10.62rem  2.5rem;
+}
+.logo{
+    font-family: bold-mon;
+}
+
+

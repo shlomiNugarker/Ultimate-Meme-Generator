@@ -1,41 +1,87 @@
 'use strict'
-var gLastCtx
-var gCurrCtx
-var gCurrMeme
 var gCanvas
 var gCtx
-var gMeme
+var gStartPos
+var gLine
+var currLine
+var gClickedLine
+
+var gImgs = []
+var gMeme ={
+    selectedImgId: '',
+    selectedLineidx: 0,
+    lines: []
+}
+var gSets = {
+    x: 100,
+    y: 150,
+    fontSize: 40,
+    fillStyle: '#ffffff',
+    strokeStyle: '##000000'
+}
+
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function init() {
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
+
     resizeCanvas()
-  
-    window.addEventListener('resize', () => {
-        console.log('resized')
-        resizeCanvas()
-    })
-    renderGallery()
+    gImgs = getImgs()
+    renderGallery(gImgs)
+
+    addListeners()
+    renderCanvas()
 }
-
-
-
-
-
 
 function renderCanvas() {
-    gCtx.save()
+    if(!gMeme.selectedImgId) return
     gCtx.fillStyle = "#ede5ff"
-    gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
-    // renderCircle()
-    gCtx.restore()
+    gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
+    renderMeme(gMeme)
 }
 
-function renderCircle() {
-    const { pos, color, size } = getCircle()
-    drawArc(pos.x, pos.y, size, color)
+function renderMeme(meme){
+    renderImg(meme.selectedImgId)
+    console.log('render Meme');
+    meme.lines.forEach(line =>{
+        drawLine(line)
+        console.log(line);
+    })
 }
 
+function setLineTxt(){
+    var inputEl = document.querySelector('input[name=txt-mem]')
+    inputEl.focus()
+    
+      inputEl.addEventListener('input', (e)=> {
+        renderMeme(gMeme)
+        currLine = e.target.value
+        gLine = createLine(currLine, gSets.x, gSets.y, gSets.fontSize, gSets.fillStyle, gSets.strokeStyle)
+        drawLine(gLine)
+
+      })
+}
+
+function createLine(txt='hello',x, y, fontSize, fillStyle, strokeStyle){
+    return {
+        txt,
+        x,
+        y,
+        fontSize,
+        fillStyle,
+        strokeStyle,
+        isDrag: false,
+    }
+}
+
+function drawLine(line){
+    gCtx.font = `${line.fontSize}px Impact`;
+    gCtx.fillStyle = line.fillStyle;
+    gCtx.strokeStyle = line.strokeStyle;
+    gCtx.fillText(line.txt, line.x, line.y);
+    gCtx.strokeText(line.txt, line.x, line.y);
+}
 
 function getEvPos(ev) {
     var pos = {
@@ -50,4 +96,94 @@ function getEvPos(ev) {
             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
         }
     }
+    return pos
 }
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderCanvas()
+    })
+}
+
+function addTouchListeners() {
+    gCanvas.addEventListener('touchmove', onMove)
+    gCanvas.addEventListener('touchstart', onDown)
+    gCanvas.addEventListener('touchend', onUp)
+}
+
+function addMouseListeners() {
+    gCanvas.addEventListener('mousemove', onMove)
+    gCanvas.addEventListener('mousedown', onDown)
+    gCanvas.addEventListener('mouseup', onUp)
+}
+
+
+
+
+function onDown(ev) {
+    const pos = getEvPos(ev)
+    // debugger
+    console.log(pos);
+    console.log(isLineClicked(pos));
+    isLineClicked(pos)
+    // if(!isLineClicked(pos)) return
+    //     console.log('clicked');
+    //     setLineDrag(true, gClickedLine)
+    //     gStartPos = pos
+    //     document.body.style.cursor = 'grabbing'
+
+}
+
+
+
+function isLineClicked(pos){
+    var lines = gMeme.lines
+    lines.some(line => {
+        var txtMeasure = gCtx.measureText(line.txt)
+        var widthTxt = txtMeasure.width
+        var heightTxt = (txtMeasure.fontBoundingBoxAscent/2)
+      
+        if(pos.x >= line.x && pos.x <= (line.x + widthTxt) && pos.y >= (line.y - heightTxt) && pos.y <= (line.y + heightTxt)){
+            gClickedLine = line
+            setLineDrag(true, line)
+            gStartPos = pos
+            document.body.style.cursor = 'grabbing'
+        }
+      
+    })
+}
+
+function onMove(ev){
+    if(!gClickedLine) return
+    console.log('onMove');
+
+    if(gClickedLine.isDrag){
+        const pos = getEvPos(ev)
+        const dx = pos.x - gClickedLine.x
+        const dy = pos.y - gClickedLine.y
+        moveLine(dx, dy)
+        gStartPos = renderCanvas()
+    }
+}
+
+function moveLine(dx, dy) {
+    gClickedLine.x += dx
+    gClickedLine.y += dy
+
+}
+
+function onUp(){
+    console.log('onUp()');
+    setLineDrag(false, gClickedLine)
+    document.body.style.cursor = 'grab'
+}
+
+
+function setLineDrag(isDrag, clickedLine){
+    clickedLine.isDrag = isDrag
+}
+
+

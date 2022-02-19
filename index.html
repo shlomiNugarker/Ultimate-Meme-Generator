@@ -8,60 +8,64 @@
     <title>Ultimate Meme Generator</title>
 </head>
 <body onload="init()">
-    <header class="main-header flex space-between align-center">
-        <div class="logo">logo</div>
-
-        <nav class="main-nav-container">
-           <ul class="main-nav clean-list flex">
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Memes</a> </li>
-            <li><a href="#">About</a></li>
-        </ul>  
-        </nav>
+    <header class="orange-bg">
+        <div class="main-header  main-layout flex space-between align-center">
+            <p class="logo">memegen</p>
+            <nav">
+               <ul class="clean-list flex">
+                <li onclick="onClickBtnsNav('gallery')"><a href="#">Gallery</a></li>
+                <li  onclick="onClickBtnsNav()"><a href="#">Memes</a> </li>
+            </ul>  
+            </nav>
+        </div>
     </header>
 
-    <main class="gallery-container main-layout">
-        <div class="search-container">
-            <input type="text" placeholder="SEARCH">
-                    <span class="most-search">
+    <section class="white-bg">
+        <div class="main-search main-layout flex  align-center">
+            <input type="text" placeholder="Enter search keyword" class="search-input">
+        <div class="key-words">
             <span>funny</span>
-            <span>animal</span>
-            <span>men</span>
-            <span>woman</span>
-        </span>
+            <span>comic</span>
+            <span>dogs</span>
+            <span>more</span>
         </div>
+        </div>
+    </section>
 
-        <div class="image-gallery gallery-layout grid">
-            <!-- <img src="img/images/1.jpg" alt="" onclick="onImgSelected(this)"> -->
+    <main>
+        <div class="main-gallery main-layout grid ">
+  
         </div>
     </main>
 
-    <main class="meme-editor main-layout hide">
-        <section class="flex space-between">
+    <main>
+        <div class="main-editor main-layout flex hide">
+
             <div class="canvas-container">
-                <canvas id="my-canvas" width="600" height="600"></canvas>
+                <canvas id="my-canvas" width="400" height="400"></canvas>
             </div>
-            
+
             <div class="tools">
-                <input type="text" name="txt-mem"  placeholder="text here">
+                <input type="text" name="txt-mem"  placeholder="text here"><br>
                 <button onclick="onClickSwitch(this)"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" ></button>
-                <button><img src="img/ICONS/add.png" alt="add"></button>
+                <button onclick="onAddLine()"><img src="img/ICONS/add.png" alt="add"></button>
                 <button onclick="onClearCanvas()" name="trash"><img src="img/ICONS/trash.png"></button><br>
-                <button onclick="onClickFontSize(true,this)" name="increase"><img src="img/ICONS/increase font - icon.png"></button>
-                <button onclick="onClickFontSize(false, this)"><img src="img/ICONS/decrease font - icon.png" alt="decrease font"></button>
-                <button onclick="onClickLeft(this)"><img src="img/ICONS/align-to-left.png" alt="align-to-left"></button>
-                <button onclick="onClickCenter(this)"><img src="img/ICONS/center-text-alignment.png" alt="center-text-alignment"></button>
-                <button onclick="onClickRight(this)"><img src="img/ICONS/align-to-right.png" alt="align-to-right"></button>
+                <button onclick="ondIncrFontSize(this)" name="increase"><img src="img/ICONS/increase font - icon.png"></button>
+                <button onclick="onDcrsFontSize(this)"><img src="img/ICONS/decrease font - icon.png" alt="decrease font"></button>
+                <button onclick="onAlignL(this)"><img src="img/ICONS/align-to-left.png" alt="align-to-left"></button>
+                <button onclick="onAlignC(this)"><img src="img/ICONS/center-text-alignment.png" alt="center-text-alignment"></button>
+                <button onclick="onAlignR(this)"><img src="img/ICONS/align-to-right.png" alt="align-to-right"></button><br>
                 <select  id="">
                     <option value="impact">Impact</option>
                 </select>
                 <button><img src="img/ICONS/text stroke.png" alt="text stroke"></button>
-                <button name="save" onclick="onSaveStep()">Save step</button>
 
-                <button><input name="color1" type="color" value="#ffffff"></button>
-                <button><input name="color2" type="color" value="#000000"></button><br>
-                <button class="left">Left</button><button class="right">Right</button><br>
-                <button class="up">Up</button> <button class="down">Down</button>
+                <button onchange="onClickColor1()" onclick="onClickColor1()"><input name="color1" type="color" value="#ffffff"></button>
+                <button onchange="onClickColor2()"><input name="color2" type="color" value="#000000"></button><br>
+                <button onclick=" onClickLeft(this)" class="left">Left</button>
+                <button onclick="onClickRight(this)" class="right">Right</button><br>
+                <button onclick="onClickUp(this)" class="up">Up</button>
+                <button onclick="onClickDown(this)" class="down">Down</button>
                 <p>font-size:</p><span class="font-size">40</span><br>
 
                 <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
@@ -70,8 +74,27 @@
                 <div class="share-container"></div>
                 <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
             </div>
-        </section>
+        </div>
     </main>
+
+    <!-- <section class="white-bg">
+        <div class="main-contact main-layout flex align-center">
+            <img class="person-img" src="img/images/6.jpg">
+            <div class="main-details">
+                <h1>Monica Geller</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, explicabo. Unde tenetur, voluptate nam deserunt similique adipisci minima animi! Explicabo molestias dolor eveniet iusto! Magni iste pariatur minus sint aspernatur.</p>
+            </div>
+        </div>
+    </section>  -->
+
+    <footer class="orange-bg">
+        <div class="main-footer flex">
+            <p class="logo">memegen</p>
+        <p>all rights reserved 2019</p>
+        </div>
+    </footer>
+
+
 
     <script src="js/storage.service.js"></script>
     <script src="js/utils.js"></script>

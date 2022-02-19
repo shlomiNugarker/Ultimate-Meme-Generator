@@ -1,0 +1,17 @@
+.main-search{
+    height: 80px;
+    background-color: white;
+}
+.key-words{
+    display: inline;
+}
+
+.main-search input {
+    border: none;
+    border-bottom: 1px solid;
+}
+.lucky {
+    text-align: center;
+    cursor: pointer;
+    padding-bottom: 5px;
+}

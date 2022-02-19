@@ -1,13 +1,17 @@
 'use strict'
-
-var imgCount = 18
 var imgIdx = 1
+var imgCount = 18
 
-function loadMemsFromGallery(img, renderMeme){
-    var memeSrc = img.getAttribute('src')
-    var newMeme = new Image()
-    gCurrMeme = newMeme 
-    newMeme.src = memeSrc
-    renderMeme(newMeme)
-}
-
+function getImgs(){
+    gImgs = []
+    for(var i = 0; i < imgCount; i++){
+        gImgs.push(
+            {
+                id: makeId(),
+                url: `img\/images\/${imgIdx++}.jpg`,
+                keywords:[]
+            }
+        )
+    }
+    return gImgs
+  }

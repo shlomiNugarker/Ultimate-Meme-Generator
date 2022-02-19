@@ -1,0 +1,21 @@
+.main-footer{
+    height: 205px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.main-details h1 {
+    font-family:  bold-mon;
+    font-size: a.5625rem;
+}
+.main-contact{
+    padding: 0 8.75rem;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+

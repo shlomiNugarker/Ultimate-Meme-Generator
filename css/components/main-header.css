@@ -1,14 +1,9 @@
-.main-header {
-    height: 100px;
+.main-header{
+    color: white;
+    height: 65px;
 }
-.main-header .logo {
-    font-family: inconsolata;
-    color: var(--clr2);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-}
-.main-header .main-nav a {
-    text-transform: uppercase;
-    color: inherit;
-    text-decoration: none;
+
+ul > li{
+    justify-content: center;
+    align-items: center;
 }

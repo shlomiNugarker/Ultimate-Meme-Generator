@@ -1,4 +1,9 @@
-/* @font-face {
-    font-family: play;
-    src: url(/Fonts/Playfair/PlayfairDisplay-Regular.ttf);
-} */
+@font-face {
+    font-family: bold-mon;
+    src: url(/css/font/Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: monstserrat-reg;
+    src: url(/css/font/Montserrat/Montserrat-Regular.ttf)
+}
