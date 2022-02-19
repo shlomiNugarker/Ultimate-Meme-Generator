@@ -10,13 +10,16 @@ function renderGallery(imgs) {
 }
 
 function onImgSelected(imgId) {
-    resizeCanvas()
+    // debugger
     gMeme.selectedImgId = imgId
+    document.querySelector('.main-gallery').classList.toggle('hide')
+    document.querySelector('.main-editor').classList.toggle('hide')
+    resizeCanvas()
     renderMeme(gMeme)
     setLineTxt()
 
-    document.querySelector('.main-gallery').classList.toggle('hide')
-    document.querySelector('.main-editor').classList.toggle('hide')
+    // document.querySelector('.main-gallery').classList.toggle('hide')
+    // document.querySelector('.main-editor').classList.toggle('hide')
     // document.querySelector('.lucky').classList.toggle('hide')
 }
 

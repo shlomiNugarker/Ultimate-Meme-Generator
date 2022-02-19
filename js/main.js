@@ -131,33 +131,33 @@ function onDown(ev) {
 
 
 
-// function createEmoji(el){/////////
-//     var emoji = {
-//         x: 100,
-//         y: 100,
-//         id: makeId(),
-//         size: 100,
-//         isDrag: false,
-//         src: el.src
+function createEmoji(el){/////////
+    var emoji = {
+        x: 100,
+        y: 100,
+        id: makeId(),
+        size: 100,
+        isDrag: false,
+        src: el.src
 
-//     }
-//     gEmojis.push(emoji)
-// }
+    }
+    gEmojis.push(emoji)
+}
 
-// function renderEmoji(el, id){
-//     var emoji = createEmoji(el)
+function renderEmoji(el, id){
+    var emoji = createEmoji(el)
 
-//     var emj = document.getElementById(`emoli${id}`)
-//     console.log(emj);
-//     // gCtx.drawImage(emoji, gCanvas.width/4, gCanvas.height/4, gCanvas.width/4, gCanvas.height/4);
-//     gCtx.drawImage(emj, 100, 100, 100, 100);
+    var emj = document.getElementById(`emoli${id}`)
+    console.log(emj);
+    // gCtx.drawImage(emoji, gCanvas.width/4, gCanvas.height/4, gCanvas.width/4, gCanvas.height/4);
+    gCtx.drawImage(emj, 100, 100, 100, 100);
     
     
-// }
+}
 
-// function isEmojiClicked(){
+function isEmojiClicked(){
 
-// }
+}
 
 function isLineClicked(pos){
     var lines = gMeme.lines
