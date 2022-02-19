@@ -24,13 +24,11 @@ function onClickBtnsNav(txt){
     if(txt === 'gallery') {
         document.querySelector('.main-gallery').classList.remove('hide')
         document.querySelector('.main-editor').classList.add('hide')
-        document.querySelector('.lucky').classList.remove('hide')
         document.querySelector('.main-search ').classList.remove('hide')
     }
     else {
         document.querySelector('.main-gallery').classList.add('hide')
         document.querySelector('.main-editor').classList.remove('hide')
-        document.querySelector('.lucky').classList.add('hide')
         document.querySelector('.main-search ').classList.add('hide')
     }
 }
