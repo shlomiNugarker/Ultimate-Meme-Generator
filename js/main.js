@@ -7,6 +7,7 @@ var currLine
 var gClickedLine
 
 var gImgs = []
+var gEmojis = []
 var gMeme ={
     selectedImgId: '',
     selectedLineidx: 0,
@@ -120,26 +121,46 @@ function addMouseListeners() {
     gCanvas.addEventListener('mouseup', onUp)
 }
 
-
-
-
 function onDown(ev) {
     const pos = getEvPos(ev)
     // debugger
     console.log(pos);
     console.log(isLineClicked(pos));
     isLineClicked(pos)
-    // if(!isLineClicked(pos)) return
-    //     console.log('clicked');
-    //     setLineDrag(true, gClickedLine)
-    //     gStartPos = pos
-    //     document.body.style.cursor = 'grabbing'
-
 }
 
 
 
+function createEmoji(el){/////////
+    var emoji = {
+        x: 100,
+        y: 100,
+        id: makeId(),
+        size: 100,
+        isDrag: false,
+        src: el.src
+
+    }
+    gEmojis.push(emoji)
+}
+
+function renderEmoji(el, id){
+    var emoji = createEmoji(el)
+
+    var emj = document.getElementById(`emoli${id}`)
+    console.log(emj);
+    // gCtx.drawImage(emoji, gCanvas.width/4, gCanvas.height/4, gCanvas.width/4, gCanvas.height/4);
+    gCtx.drawImage(emj, 100, 100, 100, 100);
+    
+    
+}
+
+function isEmojiClicked(){
+
+}
+
 function isLineClicked(pos){
+    if(!gClickedLine) return
     var lines = gMeme.lines
     lines.some(line => {
         var txtMeasure = gCtx.measureText(line.txt)
@@ -165,7 +186,8 @@ function onMove(ev){
         const dx = pos.x - gClickedLine.x
         const dy = pos.y - gClickedLine.y
         moveLine(dx, dy)
-        gStartPos = renderCanvas()
+        gStartPos = pos
+        renderCanvas()
     }
 }
 
@@ -176,6 +198,7 @@ function moveLine(dx, dy) {
 }
 
 function onUp(){
+    if(!gClickedLine) return
     console.log('onUp()');
     setLineDrag(false, gClickedLine)
     document.body.style.cursor = 'grab'

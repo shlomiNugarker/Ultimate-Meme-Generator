@@ -80,6 +80,12 @@
     .main-contact{
         display: none;
     }
+    .hide{
+        /* opacity: 0; */
+        display: none;
+        position: absolute;
+        left: -500vw;
+    }
   
 }
 /* 
