@@ -1,6 +1,13 @@
 'use strict'
 
 function renderGallery(imgs) {
+    // var strHTML = imgs.map(function(img){
+    //     return `
+    //         <img class="img-gallery" id='${img.id}' src="${img.url}"  onclick="onImgSelected('${img.id}')">
+    //     `
+    // })
+    // document.querySelector('.main-gallery').innerHTML = strHTML.join('')
+
     var strHTML = imgs.map(function(img){
         return `
             <img class="img-gallery" id='${img.id}' src="${img.url}"  onclick="onImgSelected('${img.id}')">

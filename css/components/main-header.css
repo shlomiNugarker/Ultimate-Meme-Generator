@@ -48,7 +48,7 @@ ul li:last-child{
 .show-modal{
 
     opacity: 1;
-    right: 25vw;
+    right: 5vw;
     /* width: 40vw; */
     z-index: 2;
 
@@ -79,3 +79,8 @@ body.menu-open .main-screen {
     pointer-events: auto;
     opacity: 1;
 }
+/*  */
+
+
+
+

@@ -38,12 +38,26 @@ function init() {
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
 
+    
     resizeCanvas()
     gImgs = getImgs()
     renderGallery(gImgs)
-
     addListeners()
     renderCanvas()
+    
+    setKeywords(keywords)
+    // filterGallery()
+
+    document.querySelector('input[name=search-key-word').addEventListener('input',(e)=>{
+        var imgs = gImgs.filter((img, i) => {
+            var word = img.keywords[0]
+            console.log(word);
+            return(word.includes(e.target.value)) 
+        }) 
+        renderGallery(imgs)
+ 
+         
+     })
 }
 
 function renderCanvas() {
@@ -74,7 +88,8 @@ function setLineTxt(){
         renderMeme(gMeme)
         currLine = e.target.value
         gLine = createLine(currLine, gSets.x, gSets.y, gSets.fontSize, gSets.fillStyle, gSets.strokeStyle)
-        drawLine(gLine) // click add btn and push to model
+        drawLine(gLine) // click add-btn and push to model
+        gClickedLine = null
         
     })
     
@@ -140,10 +155,16 @@ function getEvPos(ev) {
 }
 
 function onDown(ev) {
+
     const pos = getEvPos(ev)
-    console.log(pos);
     isEmojiClicked(pos)
     isLineClicked(pos)
+    if(!gClickedLine && !gEmoji) {
+        document.querySelector('.to-drag-msg').innerText = 'Save the line first for drag +'
+        setTimeout(()=>{
+         document.querySelector('.to-drag-msg').innerText = ''
+        } ,1500)
+     }
 }
 
 function onMove(ev){
@@ -233,3 +254,31 @@ function toggleMenu(){
     document.body.classList.toggle('menu-open')
     document.querySelector('.modal').classList.toggle('show-modal')
 }
+
+function toggleMoreModal(){
+    document.body.classList.toggle('modal-open')
+    document.querySelector('.share-container').classList.toggle('open-share-container') 
+}
+
+function onLucky(){
+    var randNum = getRandomIntInclusive(0, imgCount-1)
+    var imgId = gImgs[randNum].id
+    onImgSelected(imgId)
+}
+
+// function filterGallery() {
+//      document.querySelector('input[name=search-key-word').addEventListener('input',(e)=>{
+
+//        var imgs = gImgs.filter((img) => {
+//            var words = img.keywords
+//            return e.target.value.includes(...words)
+//        }) 
+//        renderGallery(imgs)
+
+        
+//     })
+// }
+       
+        
+
+

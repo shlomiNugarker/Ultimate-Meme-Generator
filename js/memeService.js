@@ -78,11 +78,12 @@ function uploadImg() {
       console.log(encodedUploadedImgUrl);
       document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
 
-      document.querySelector('.share-container').innerHTML = `
-      <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}"
+      document.querySelector('.sharre-container').innerHTML = `
+      <a class="btn-share" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}"
        title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
          Share   
       </a>`
+      toggleMoreModal()
   }
   doUploadImg(imgDataUrl, onSuccess);
 }

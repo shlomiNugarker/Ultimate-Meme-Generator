@@ -12,3 +12,16 @@
 .main-gallery img{
     cursor: pointer;
 }
+
+.search-ic{
+    width: 40px;
+    padding-inline-end: 10px;
+}
+
+.feel-lucky{
+    margin-top: 5px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin:7px auto;
+    padding: 5px;
+}

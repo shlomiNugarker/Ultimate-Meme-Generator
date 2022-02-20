@@ -9,6 +9,7 @@
 </head>
 <body onload="init()">
     <div onclick="toggleMenu()" class="main-screen"></div>
+    <div onclick=" toggleMoreModal()" class="main-screen2"></div>
     <div class="modal ">
         <a class="flex" onclick="onClickBtnsNav('gallery')" href="#">Gallery</a>
         <a class="flex" onclick="onClickBtnsNav()" href="#">Memes</a> 
@@ -28,15 +29,19 @@
 
     <section class="white-bg">
         <div class="main-search main-layout flex  align-center">
-            <input type="text" placeholder="Enter search keyword" class="search-input">
+            <input type="text" name="search-key-word" placeholder="Enter search keyword" class="search-input">
+            <img class="search-ic" src="img/ICONS/search-icon.png" alt="">
+            
         <div class="key-words">
-            <span>funny</span>
-            <span>comic</span>
-            <span>dogs</span>
-            <span>more</span>
+            <span>trump</span>
+            <span>dog</span>
+            <span>baby</span>
+            <span>cat</span>
         </div>
         </div>
     </section>
+    <button class="feel-lucky flex" onclick="onLucky()">Feel lucky</button>
+    
 
     <main>
         <div class="main-gallery main-layout grid ">
@@ -54,6 +59,7 @@
 
             <div class="tools">
                 <input type="text" name="txt-mem"  placeholder="text here"><br>
+                <span class="to-drag-msg"></span><br>
 
                 <button onclick="onClickSwitch(this)"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" ></button>
 
@@ -91,15 +97,19 @@
 
                 <button onclick="onClickDown(this)" class="down">Down</button>
 
-                <p>font-size:</p><span class="font-size">40</span><br>
+                <p>font-size:<span class="font-size">40</span></p><br>
+                <div class="sharre-container"></div> 
+                <p class="user-msg"></p>
+                <!-- <button class="btn btn-share" onclick="uploadImg()">Share</button><br> -->
 
-                <button class="more">More</button>
+                <button onclick="toggleMoreModal()" class="more">More</button>
                 <div class="share-container">
                     <button class="btn btn-share" onclick="uploadImg()">Share</button><br>
                     <a href="#" class="btn btn-download" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a><br>
                     <!-- <p class="user-msg"></p> -->
-                    <div class="share-container"></div>
-                    <input type="file"  class="file-input btn btn-share" name="image" onchange="onImgInput(event)" />
+                    <!-- <div class="share-container">sdfgs</div> -->
+                    <input type="file"  class="file-input btn btn-share" name="image" onchange="onImgInput(event)" /><br>
+                    <button onclick="toggleMoreModal()" class="">close</button>
                 </div>
               
 

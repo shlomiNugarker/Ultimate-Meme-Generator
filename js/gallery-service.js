@@ -14,4 +14,36 @@ function getImgs(){
         )
     }
     return gImgs
-  }
+}
+
+
+var keywords = [
+    'trump',
+    'dog',
+    'baby',
+    'cat',
+    'funny',
+    'nice',
+    'baby',
+    'comics',
+    'cute',
+    'obama',
+    'box',
+    'tv',
+    'movie',
+    'ok',
+    'wine',
+    'matrix',
+    'good',
+    'baby',
+    'putin',
+    'toy',
+]
+
+
+
+function setKeywords(keywords){
+    gImgs.forEach((img, i) => {
+        gImgs[i].keywords.push(keywords[i])
+    })
+}

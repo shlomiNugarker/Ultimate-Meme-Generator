@@ -9,6 +9,7 @@
 }
 
 .main-editor{
+    min-height: 300px;
     justify-content: center;
     align-items: center;
     /* justify-content: space-around; */
@@ -19,19 +20,43 @@
 }
 .share-container{
     position: fixed;
-    margin: auto;
-    background-color:wheat;
-    top: 50vh;
-    right: 40vw;
+    /* margin: auto; */
+    background-color: #f08b26f5;
+    top: 20vh;
+    right: -100vw;
     border-radius: 10px;
     padding: 10px;
-    display: none;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.sharre-container{
+    min-height: 35px;
+}
+.to-drag-msg {
+    color: red;
 }
 
 
 
 .share-container>*:not(.share-container){
-    background-color: rgb(204, 171, 117);
+    background-color: rgb(195, 163, 112);
     padding: 10px;
     margin: 30px 0;
 }
+
+.open-share-container{
+    right: 3vw;
+    /* margin: auto; */
+    opacity: 1;
+    transition: right 0.5s;
+}
+
+.btn-share{
+    color: w;
+    background-color: rgb(81, 81, 224);
+    padding: 7px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
