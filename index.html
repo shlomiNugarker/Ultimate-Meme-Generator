@@ -9,9 +9,9 @@
 </head>
 <body onload="init()">
     <div onclick="toggleMenu()" class="main-screen"></div>
-    <div class="modal">
-        <a onclick="onClickBtnsNav('gallery')" href="#">Gallery</a>
-        <a onclick="onClickBtnsNav()" href="#">Memes</a> 
+    <div class="modal ">
+        <a class="flex" onclick="onClickBtnsNav('gallery')" href="#">Gallery</a>
+        <a class="flex" onclick="onClickBtnsNav()" href="#">Memes</a> 
     </div>
     <header class="orange-bg">
         <div class="main-header  main-layout flex space-between align-center">
@@ -54,34 +54,54 @@
 
             <div class="tools">
                 <input type="text" name="txt-mem"  placeholder="text here"><br>
+
                 <button onclick="onClickSwitch(this)"><img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt="" ></button>
+
                 <button onclick="onAddLine()"><img src="img/ICONS/add.png" alt="add"></button>
+
                 <button onclick="onClearCanvas()" name="trash"><img src="img/ICONS/trash.png"></button><br>
+
                 <button onclick="ondIncrFontSize(this)" name="increase"><img src="img/ICONS/increase font - icon.png"></button>
+
                 <button onclick="onDcrsFontSize(this)"><img src="img/ICONS/decrease font - icon.png" alt="decrease font"></button>
+
                 <button onclick="onAlignL(this)"><img src="img/ICONS/align-to-left.png" alt="align-to-left"></button>
+
                 <button onclick="onAlignC(this)"><img src="img/ICONS/center-text-alignment.png" alt="center-text-alignment"></button>
+
                 <button onclick="onAlignR(this)"><img src="img/ICONS/align-to-right.png" alt="align-to-right"></button><br>
-                <select  id="">
+
+                <!-- <select  id="">
                     <option value="">Impact</option>
                     <option value="">Arial</option>
                     <option value="">Georgia</option>
-                </select>
-                <button><img src="img/ICONS/text stroke.png" alt="text stroke"></button>
+                </select> -->
+                <!-- <button><img src="img/ICONS/text stroke.png" alt="text stroke"></button> -->
 
                 <button onchange="onClickColor1()" onclick="onClickColor1()"><input name="color1" type="color" value="#ffffff"></button>
+
+               
                 <button onchange="onClickColor2()"><input name="color2" type="color" value="#000000"></button><br>
+
                 <button onclick=" onClickLeft(this)" class="left">Left</button>
+
                 <button onclick="onClickRight(this)" class="right">Right</button><br>
+
                 <button onclick="onClickUp(this)" class="up">Up</button>
+
                 <button onclick="onClickDown(this)" class="down">Down</button>
+
                 <p>font-size:</p><span class="font-size">40</span><br>
 
-                <button class="btn btn-share" onclick="uploadImg()">Share</button><br>
-                <a href="#" class="btn btn-download" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
-                <p class="user-msg"></p>
-                <div class="share-container"></div>
-                <input type="file"  class="file-input btn btn-share" name="image" onchange="onImgInput(event)" />
+                <button class="more">More</button>
+                <div class="share-container">
+                    <button class="btn btn-share" onclick="uploadImg()">Share</button><br>
+                    <a href="#" class="btn btn-download" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a><br>
+                    <!-- <p class="user-msg"></p> -->
+                    <div class="share-container"></div>
+                    <input type="file"  class="file-input btn btn-share" name="image" onchange="onImgInput(event)" />
+                </div>
+              
 
                 <div class="emojis">
                     <button><img onclick="onClickEmoji(1)" id="emoli1" src="img/emojis/1.png" alt=""></button>

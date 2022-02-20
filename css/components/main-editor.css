@@ -15,6 +15,23 @@
     margin: 0 auto;
     max-width: 800px;
     /* max-width: 90vw; */
-    max-width: 90vw;
-    
+    max-width: 90vw;   
+}
+.share-container{
+    position: fixed;
+    margin: auto;
+    background-color:wheat;
+    top: 50vh;
+    right: 40vw;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+}
+
+
+
+.share-container>*:not(.share-container){
+    background-color: rgb(204, 171, 117);
+    padding: 10px;
+    margin: 30px 0;
 }

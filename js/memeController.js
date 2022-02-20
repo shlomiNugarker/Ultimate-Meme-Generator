@@ -1,12 +1,10 @@
 'use strict'
 
 var isSwitch = false
- 
 var gFontSize = 40
 
 function drawEmoji(emoji){
     var emj = document.getElementById(`emoli${emoji.id}`)
-    // gCtx.drawImage(emj, emoji.x, emoji.x+emoji.size, emoji.y, emoji.x+emoji.size);
     gCtx.drawImage(emj, emoji.x, emoji.y, emoji.size, emoji.size);
 }
 
@@ -18,7 +16,6 @@ function renderEmoji(id){
 function resizeCanvas() {
     var elContainer = document.querySelector('.canvas-container')
     gCanvas.width = elContainer.offsetWidth
-    // gCanvas.height = elContainer.offsetHeight
 }
 
 function onClearCanvas(){
@@ -57,7 +54,7 @@ function ondIncrFontSize(el){
     renderMeme(gMeme)
     drawLine(gLine)
     setBorder(el)
-    focusInput()
+    // focusInput()
     
 }
 
@@ -80,7 +77,6 @@ function onDcrsFontSize(el){
 
 function onClickSwitch(el){
     if(!gLine) return
-    // debugger
     renderCanvas()
     if(isSwitch){
         gLine.y = gSets.y = 35
@@ -93,17 +89,16 @@ function onClickSwitch(el){
     renderMeme(gMeme)
     drawLine(gLine)
     setBorder(el)
-    focusInput()
+    // focusInput()
 }
 
 function onClickLeft(el){
-    // if(!gLine) return
     if(gLine) {
         gLine.x = gSets.x = gSets.x-10
         renderMeme(gMeme)
         drawLine(gLine)
         setBorder(el)
-        focusInput()
+        // focusInput()
     }
     else if (gEmoji){
         gEmoji.x = gEmojiSets.x = gEmojiSets.x-10
@@ -113,13 +108,12 @@ function onClickLeft(el){
 }
 
 function onClickRight(el){
-    // if(!gLine) return
     if(gLine){
         gLine.x = gSets.x = gSets.x+15 
         renderMeme(gMeme)
         drawLine(gLine)
         setBorder(el)
-        focusInput()
+        // focusInput()
         
     }
     else if (gEmoji){
@@ -132,13 +126,12 @@ function onClickRight(el){
 }
 
 function onClickUp(el){
-    // if(!gLine) return
     if(gLine) {
         gLine.y = gSets.y = gSets.y-15
         renderMeme(gMeme)
         drawLine(gLine)
         setBorder(el)
-        focusInput()
+        // focusInput()
   
     }
     else if (gEmoji){
@@ -157,7 +150,7 @@ function onClickDown(el){
         renderMeme(gMeme)
         drawLine(gLine)
         setBorder(el)
-        focusInput()
+        // focusInput()
  
     }
     else if(gEmoji){
@@ -180,7 +173,7 @@ function onAddLine(){
     }
     else if(gEmoji){
         renderMeme(gMeme)
-        focusInput()
+        // focusInput()
         gEmoji = null
     }
 }
@@ -191,7 +184,7 @@ function onAlignL(el) {
     renderMeme(gMeme)
     drawLine(gLine)
     setBorder(el)
-    focusInput()
+    // focusInput()
 }
 
 function onAlignR(el) {
@@ -200,17 +193,17 @@ function onAlignR(el) {
     renderMeme(gMeme)
     drawLine(gLine)
     setBorder(el)
-    focusInput()
+    // focusInput()
 }
 
 function onAlignC(el) {
     if(!gLine) return
-    gLine.x = gSets.x = 128
-    gLine.y = gSets.y = 168
+    gLine.x = gSets.x = 125
+    gLine.y = gSets.y = 185
     renderMeme(gMeme)
     drawLine(gLine)
     setBorder(el)
-    focusInput()
+    // focusInput()
 }
 
 function onClickColor1(){

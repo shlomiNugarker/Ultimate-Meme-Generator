@@ -24,7 +24,6 @@ ul li:last-child{
     position: fixed;
     right: 0;
     padding: 10px;
-    /* opacity: 0; */
     display: none;
 }
 
@@ -35,29 +34,40 @@ ul li:last-child{
     opacity: 0;
     text-align: center;
     position: fixed;
-    border: 1px solid;
-    /* border-radius: 5px; */
-    width: 100vw;
+    border-radius: 5px;
+    width: 40vw;
     height: fit-content;
     top: 15vh;
     right: -100vw;
-    /* min-height: 100px; */
-    /* width: 200px; */
     background-color: var(--clr1);
     transition: all 0.3s;
+    margin: auto;
+    padding: 10px;
 }
 
 .show-modal{
+
     opacity: 1;
-    right: 50vw;
-    width: 100vw;
+    right: 25vw;
+    /* width: 40vw; */
     z-index: 2;
+
+}
+.modal a {
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background .2s;
+    
+}
+.modal a:hover{
+    background-color: #e6a463;
 }
 
 .main-screen{
     position: fixed;
     inset: 0 ;
-    /* z-index: 3; */
     background-color: rgba(0, 0, 0, 0.513);
     cursor: pointer;
     opacity: 0;

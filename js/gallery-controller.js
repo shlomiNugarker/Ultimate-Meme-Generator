@@ -29,8 +29,6 @@ function onClickBtnsNav(txt){
         document.querySelector('.main-editor').classList.remove('hide')
         document.querySelector('.main-search ').classList.add('hide')
     }
-    // document.body.classList.remove('menu-open')
-    // document.querySelector('.modal').classList.toggle('show-modal')
 }
 
 function renderImg(imgId) {

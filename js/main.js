@@ -96,6 +96,7 @@ function isEmojiClicked(pos){
             if(pos.x >= emoji.x && pos.x <= (emoji.x + width) && pos.y >= emoji.y && pos.y <= (emoji.y+height)){
             gClickedLine = null
             gClickedEmoji = emoji
+            gEmoji = emoji
             setEmojiDrag(true, emoji)
             gStartPos = pos
             document.body.style.cursor = 'grabbing'
@@ -114,6 +115,7 @@ function isLineClicked(pos){
         if(pos.x >= line.x && pos.x <= (line.x + widthTxt) && pos.y >= (line.y - heightTxt) && pos.y <= (line.y + heightTxt)){
             gClickedEmoji = null
             gClickedLine = line
+            gLine = line
             setLineDrag(true, line)
             gStartPos = pos
             document.body.style.cursor = 'grabbing'
@@ -139,6 +141,7 @@ function getEvPos(ev) {
 
 function onDown(ev) {
     const pos = getEvPos(ev)
+    console.log(pos);
     isEmojiClicked(pos)
     isLineClicked(pos)
 }
