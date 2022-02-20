@@ -5,12 +5,15 @@
 .tools{
     margin: 0 auto;
     padding: 20px;
+    text-align: center;
 }
 
 .main-editor{
     align-items: center;
     /* justify-content: space-around; */
     margin: 0 auto;
-    /* width: 890px; */
+    max-width: 800px;
+    /* max-width: 90vw; */
+    max-width: 90vw;
     
 }

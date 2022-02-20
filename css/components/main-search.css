@@ -1,6 +1,7 @@
 .main-search{
-    height: 80px;
+    height: 65px;
     background-color: white;
+    padding: 10px;
 }
 .key-words{
     display: inline;
@@ -9,6 +10,7 @@
 .main-search input {
     border: none;
     border-bottom: 1px solid;
+    margin-right: 20px;
 }
 .lucky {
     text-align: center;

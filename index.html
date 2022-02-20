@@ -44,6 +44,7 @@
             <div class="canvas-container">
                 <canvas id="my-canvas" width="400" height="400"></canvas>
             </div>
+           
 
             <div class="tools">
                 <input type="text" name="txt-mem"  placeholder="text here"><br>
@@ -68,16 +69,16 @@
                 <button onclick="onClickDown(this)" class="down">Down</button>
                 <p>font-size:</p><span class="font-size">40</span><br>
 
-                <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
-                <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                <button class="btn btn-share" onclick="uploadImg()">Share</button><br>
+                <a href="#" class="btn btn-download" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
                 <p class="user-msg"></p>
                 <div class="share-container"></div>
-                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+                <input type="file"  class="file-input btn btn-share" name="image" onchange="onImgInput(event)" />
 
                 <div class="emojis">
-                    <button><img onclick="renderEmoji(this, 1)" id="emoli1" src="img/emojis/1.png" alt=""></button>
-                    <button><img onclick="renderEmoji(this, 2)" id="emoli2" src="img/emojis/2.png" alt=""></button>
-                    <button><img onclick="renderEmoji(this, 3)" id="emoli3" src="img/emojis/3.png" alt=""></button>
+                    <button><img onclick="onClickEmoji(1)" id="emoli1" src="img/emojis/1.png" alt=""></button>
+                    <button><img onclick="onClickEmoji(2)" id="emoli2" src="img/emojis/2.png" alt=""></button>
+                    <button><img onclick="onClickEmoji(3)" id="emoli3" src="img/emojis/3.png" alt=""></button>
                 </div>
             </div>
          

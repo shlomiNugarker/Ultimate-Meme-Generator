@@ -5,7 +5,7 @@
     grid-auto-flow: dense;
     gap: 10px;
     padding: 60px;
-    width: auto;
+    max-width: 900px;
     margin: 0 auto;
 }
 

@@ -3,8 +3,38 @@ function getMeme(){
   return gMeme
 }
 
+function createLine(txt='hello',x, y, fontSize, fillStyle, strokeStyle){
+  return {
+      txt,
+      x,
+      y,
+      fontSize,
+      fillStyle,
+      strokeStyle,
+      isDrag: false,
+  }
+}
+
+function drawLine(line){
+  gCtx.font = `${line.fontSize}px Impact`;
+  gCtx.fillStyle = line.fillStyle;
+  gCtx.strokeStyle = line.strokeStyle;
+  gCtx.fillText(line.txt, line.x, line.y);
+  gCtx.strokeText(line.txt, line.x, line.y);
+}
+
 function clearCanvas() {
   gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+}
+
+function createEmoji(id){
+  return {
+      x: 100,
+      y: 100,
+      id: id,
+      size: 100,
+      isDrag: false,
+  }
 }
 
 function downloadImg(elLink) {
@@ -27,7 +57,9 @@ function loadImageFromInput(ev, onImageReady) {
       // Render on canvas
       img.onload = onImageReady.bind(null, img)
       img.src = event.target.result
-      gImg = img
+      gPrivateImg = img
+      //
+      
   }
   console.log('after');
   reader.readAsDataURL(ev.target.files[0])
@@ -36,7 +68,6 @@ function loadImageFromInput(ev, onImageReady) {
 function renderImg2(img) {
   gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
-
 // Uploud
 function uploadImg() {
   const imgDataUrl = gCanvas.toDataURL("image/jpeg");

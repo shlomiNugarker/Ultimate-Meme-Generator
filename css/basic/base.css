@@ -32,6 +32,9 @@ li{
     list-style-type: none;
     padding: 0 5px;
 }
+li:first-child{
+    border-right: 1px solid black
+}
 a{
     text-decoration: none;
 }
@@ -44,6 +47,27 @@ a{
 }
 .logo{
     font-family: bold-mon;
+    font-size: 2rem;
 }
 
+.btn{
+    margin: 6px 0;
+}
 
+.btn-share{
+    background-color: var(--clr1);
+}
+
+.file-input{
+    display: inline;
+    width: 245px;
+    border-radius: 7px;
+    padding: 3px;
+}
+
+.btn-download{
+    background-color: var(--clr1);
+    border-radius: 7px;
+    padding: 3px;
+    
+}

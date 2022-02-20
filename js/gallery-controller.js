@@ -10,17 +10,12 @@ function renderGallery(imgs) {
 }
 
 function onImgSelected(imgId) {
-    // debugger
     gMeme.selectedImgId = imgId
     document.querySelector('.main-gallery').classList.toggle('hide')
     document.querySelector('.main-editor').classList.toggle('hide')
     resizeCanvas()
     renderMeme(gMeme)
     setLineTxt()
-
-    // document.querySelector('.main-gallery').classList.toggle('hide')
-    // document.querySelector('.main-editor').classList.toggle('hide')
-    // document.querySelector('.lucky').classList.toggle('hide')
 }
 
 function onClickBtnsNav(txt){
@@ -37,16 +32,12 @@ function onClickBtnsNav(txt){
 }
 
 function renderImg(imgId) {
+    if(gPrivateImg){
+        gCtx.drawImage(gPrivateImg, 0, 0, gCanvas.width, gCanvas.height);
+        return
+    }
     var imgSelected = document.getElementById(imgId)
     gCtx.drawImage(imgSelected, 0, 0, gCanvas.width, gCanvas.height);
 }
 
-// function onLucky(){
-//     var randIdx = getRandomIntInclusive(0, gImgs.length-1)
-//     var randMeme = gImgs[randIdx]
-//     console.log(randMeme);
-//     renderMeme(randMeme.id)
-//     // renderImg(randMeme.id)
-//     document.querySelector('.main-search ').classList.add('hide')
-// }
 
