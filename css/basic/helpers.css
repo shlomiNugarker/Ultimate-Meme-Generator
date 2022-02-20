@@ -34,3 +34,7 @@
     position: absolute;
     left: -500vw;
 }
+.hide-btn {
+    display: none;
+}
+

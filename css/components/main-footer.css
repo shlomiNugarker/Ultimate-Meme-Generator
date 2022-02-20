@@ -10,8 +10,17 @@
     font-family:  bold-mon;
     font-size: a.5625rem;
 }
+.main-details{
+    max-width: 500px;
+    text-align: center;
+}
 .main-contact{
-    padding: 0 8.75rem;
+    /* padding: 0 8.75rem; */
+    min-height: 415px;
+    padding: 0.3125rem;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 a{

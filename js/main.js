@@ -75,8 +75,9 @@ function setLineTxt(){
         currLine = e.target.value
         gLine = createLine(currLine, gSets.x, gSets.y, gSets.fontSize, gSets.fillStyle, gSets.strokeStyle)
         drawLine(gLine) // click add btn and push to model
-
+        
     })
+    
 }
 
 function onClickEmoji(id){
@@ -93,9 +94,8 @@ function isEmojiClicked(pos){
         var width = emoji.x + emoji.size
         var height = emoji.y + emoji.size
             if(pos.x >= emoji.x && pos.x <= (emoji.x + width) && pos.y >= emoji.y && pos.y <= (emoji.y+height)){
-                // debugger
             gClickedLine = null
-            console.log('grab?');
+            gClickedEmoji = emoji
             setEmojiDrag(true, emoji)
             gStartPos = pos
             document.body.style.cursor = 'grabbing'
@@ -139,8 +139,8 @@ function getEvPos(ev) {
 
 function onDown(ev) {
     const pos = getEvPos(ev)
-    isLineClicked(pos)
     isEmojiClicked(pos)
+    isLineClicked(pos)
 }
 
 function onMove(ev){
@@ -224,3 +224,9 @@ function setEmojiDrag(isDrag, clickedEmoji) {
     clickedEmoji.isDrag = isDrag
 }
 
+
+
+function toggleMenu(){
+    document.body.classList.toggle('menu-open')
+    document.querySelector('.modal').classList.toggle('show-modal')
+}

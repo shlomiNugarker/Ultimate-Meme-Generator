@@ -8,15 +8,21 @@
     <title>Ultimate Meme Generator</title>
 </head>
 <body onload="init()">
+    <div onclick="toggleMenu()" class="main-screen"></div>
+    <div class="modal">
+        <a onclick="onClickBtnsNav('gallery')" href="#">Gallery</a>
+        <a onclick="onClickBtnsNav()" href="#">Memes</a> 
+    </div>
     <header class="orange-bg">
         <div class="main-header  main-layout flex space-between align-center">
             <p class="logo">memegen</p>
-            <nav">
+            <nav class="nav">
                <ul class="clean-list flex">
-                <li onclick="onClickBtnsNav('gallery')"><a href="#">Gallery</a></li>
-                <li  onclick="onClickBtnsNav()"><a href="#">Memes</a> </li>
+                <li class="flex" onclick="onClickBtnsNav('gallery')"><a href="#">Gallery</a></li>
+                <li class="flex" onclick="onClickBtnsNav()"><a href="#">Memes</a> </li>
             </ul>  
-            </nav>
+        </nav>
+        <button  onclick="toggleMenu()" class="mobile-btn">☰</button>
         </div>
     </header>
 
@@ -57,7 +63,9 @@
                 <button onclick="onAlignC(this)"><img src="img/ICONS/center-text-alignment.png" alt="center-text-alignment"></button>
                 <button onclick="onAlignR(this)"><img src="img/ICONS/align-to-right.png" alt="align-to-right"></button><br>
                 <select  id="">
-                    <option value="impact">Impact</option>
+                    <option value="">Impact</option>
+                    <option value="">Arial</option>
+                    <option value="">Georgia</option>
                 </select>
                 <button><img src="img/ICONS/text stroke.png" alt="text stroke"></button>
 
@@ -79,21 +87,23 @@
                     <button><img onclick="onClickEmoji(1)" id="emoli1" src="img/emojis/1.png" alt=""></button>
                     <button><img onclick="onClickEmoji(2)" id="emoli2" src="img/emojis/2.png" alt=""></button>
                     <button><img onclick="onClickEmoji(3)" id="emoli3" src="img/emojis/3.png" alt=""></button>
+                    <button><img onclick="onClickEmoji(4)" id="emoli4" src="img/emojis/4.png" alt=""></button>
+                    <button><img onclick="onClickEmoji(5)" id="emoli5" src="img/emojis/5.png" alt=""></button>
                 </div>
             </div>
          
         </div>
     </main>
 
-    <!-- <section class="white-bg">
+    <section class="white-bg">
         <div class="main-contact main-layout flex align-center">
             <img class="person-img" src="img/images/6.jpg">
             <div class="main-details">
-                <h1>Monica Geller</h1>
+                <h1>Shlomi Nugarker</h1>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, explicabo. Unde tenetur, voluptate nam deserunt similique adipisci minima animi! Explicabo molestias dolor eveniet iusto! Magni iste pariatur minus sint aspernatur.</p>
             </div>
         </div>
-    </section>  -->
+    </section> 
 
     <footer class="orange-bg">
         <div class="main-footer flex">
@@ -101,6 +111,7 @@
         <p>all rights reserved 2019</p>
         </div>
     </footer>
+    
 
 
 

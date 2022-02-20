@@ -1,6 +1,6 @@
 'use strict'
 var imgIdx = 1
-var imgCount = 9
+var imgCount = 12
 
 function getImgs(){
     gImgs = []

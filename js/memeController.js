@@ -170,7 +170,7 @@ function onClickDown(el){
    
 }
 
-function onAddLine(){ // add gLine to gMeme
+function onAddLine(){ 
     if(gLine) {
         gMeme.lines.push(gLine)
         renderMeme(gMeme)

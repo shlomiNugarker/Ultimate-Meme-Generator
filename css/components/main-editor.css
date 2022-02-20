@@ -3,12 +3,13 @@
     width: 30px;
 }
 .tools{
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 20px;
     text-align: center;
 }
 
 .main-editor{
+    justify-content: center;
     align-items: center;
     /* justify-content: space-around; */
     margin: 0 auto;
