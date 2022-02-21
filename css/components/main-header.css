@@ -44,14 +44,10 @@ ul li:last-child{
     margin: auto;
     padding: 10px;
 }
-
 .show-modal{
-
     opacity: 1;
     right: 5vw;
-    /* width: 40vw; */
     z-index: 2;
-
 }
 .modal a {
     height: 80px;
@@ -59,12 +55,10 @@ ul li:last-child{
     align-items: center;
     border-radius: 10px;
     transition: background .2s;
-    
 }
 .modal a:hover{
     background-color: #e6a463;
 }
-
 .main-screen{
     position: fixed;
     inset: 0 ;
@@ -74,12 +68,11 @@ ul li:last-child{
     pointer-events: none;
     transition: opacity .6s;
 }
-
 body.menu-open .main-screen {
     pointer-events: auto;
     opacity: 1;
 }
-/*  */
+
 
 
 

@@ -23,13 +23,10 @@
     .main-layout{
         width: 640px;
         padding: 5px;
-        /* display: block; */
-
     }
     .main-editor{
         width: 640px;
         flex-wrap: wrap;
-        /* flex-direction: column;  */
     }
     .main-gallery{
      padding: 10px;
@@ -42,14 +39,12 @@
     .person-img{
         margin: 10px;
     }
-
     .main-search{
         text-align: center;
     }
     .tools{
         text-align: center;
     }
- 
 }
 @media (max-width: 700px){
     .main-layout{
@@ -66,7 +61,6 @@
     }
     div.main-gallery{
         padding-top: 5px;
-        /* margin: auto; */
         width: 90vw;
         text-align: center;
     }
@@ -83,34 +77,27 @@
     }
 
     button.mobile-btn{
-        /* opacity: 1; */
         display: block;
     }
     div.main-contact{
         text-align: center;
         min-height: 305px;
     }
-   
     .nav{
         display: none;
     }
-    
-
     body{
         font-size: 12px;
     }
-
     .hide{
-        /* opacity: 0; */
         display: none;
-        /* position: absolute; */
-        /* left: -500vw; */
     }
-  
+    .main-header{
+        min-height: 50px;
+    }
 }
 @media (max-width: 380px){
     .porson-img {
-        /* width: 250px; */
         width: 100%;
         margin: auto;
     }

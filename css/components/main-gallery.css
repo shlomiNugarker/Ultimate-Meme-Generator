@@ -1,6 +1,6 @@
 .main-gallery{
     padding: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 50px));
     grid-auto-rows: auto;
     grid-auto-flow: dense;
     gap: 10px;
@@ -8,16 +8,13 @@
     max-width: 900px;
     margin: 0 auto;
 }
-
 .main-gallery img{
     cursor: pointer;
 }
-
 .search-ic{
     width: 40px;
     padding-inline-end: 10px;
 }
-
 .feel-lucky{
     margin-top: 5px;
     text-align: center;

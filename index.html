@@ -31,16 +31,12 @@
         <div class="main-search main-layout flex  align-center">
             <input type="text" name="search-key-word" placeholder="Enter search keyword" class="search-input">
             <img class="search-ic" src="img/ICONS/search-icon.png" alt="">
-            
-        <div class="key-words">
-            <span>trump</span>
-            <span>dog</span>
-            <span>baby</span>
-            <span>cat</span>
-        </div>
+            <div class="search-word"></div>
         </div>
     </section>
     <button class="feel-lucky flex" onclick="onLucky()">Feel lucky</button>
+
+    
     
 
     <main>
@@ -77,15 +73,8 @@
 
                 <button onclick="onAlignR(this)"><img src="img/ICONS/align-to-right.png" alt="align-to-right"></button><br>
 
-                <!-- <select  id="">
-                    <option value="">Impact</option>
-                    <option value="">Arial</option>
-                    <option value="">Georgia</option>
-                </select> -->
-                <!-- <button><img src="img/ICONS/text stroke.png" alt="text stroke"></button> -->
-
+         
                 <button onchange="onClickColor1()" onclick="onClickColor1()"><input name="color1" type="color" value="#ffffff"></button>
-
                
                 <button onchange="onClickColor2()"><input name="color2" type="color" value="#000000"></button><br>
 
@@ -100,19 +89,15 @@
                 <p>font-size:<span class="font-size">40</span></p><br>
                 <div class="sharre-container"></div> 
                 <p class="user-msg"></p>
-                <!-- <button class="btn btn-share" onclick="uploadImg()">Share</button><br> -->
 
                 <button onclick="toggleMoreModal()" class="more">More</button>
                 <div class="share-container">
                     <button class="btn btn-share" onclick="uploadImg()">Share</button><br>
                     <a href="#" class="btn btn-download" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a><br>
-                    <!-- <p class="user-msg"></p> -->
-                    <!-- <div class="share-container">sdfgs</div> -->
                     <input type="file"  class="file-input btn btn-share" name="image" onchange="onImgInput(event)" /><br>
                     <button onclick="toggleMoreModal()" class="">close</button>
                 </div>
-              
-
+            
                 <div class="emojis">
                     <button><img onclick="onClickEmoji(1)" id="emoli1" src="img/emojis/1.png" alt=""></button>
                     <button><img onclick="onClickEmoji(2)" id="emoli2" src="img/emojis/2.png" alt=""></button>
@@ -127,7 +112,7 @@
 
     <section class="white-bg">
         <div class="main-contact main-layout flex align-center">
-            <img class="person-img" src="img/images/6.jpg">
+            <img class="person-img" src="img/images/18.jpg">
             <div class="main-details">
                 <h1>Shlomi Nugarker</h1>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, explicabo. Unde tenetur, voluptate nam deserunt similique adipisci minima animi! Explicabo molestias dolor eveniet iusto! Magni iste pariatur minus sint aspernatur.</p>

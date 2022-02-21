@@ -10,6 +10,9 @@ var gClickedEmoji
 var gPrivateImg
 
 var gImgs = []
+
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
+
 var gMeme ={
     selectedImgId: '',
     selectedLineidx: 0,
@@ -32,13 +35,10 @@ var gEmojiSets = {
 
 }
 
-const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
-
 function init() {
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
 
-    
     resizeCanvas()
     gImgs = getImgs()
     renderGallery(gImgs)
@@ -46,14 +46,20 @@ function init() {
     renderCanvas()
     
     setKeywords(keywords)
-    // filterGallery()
+
 
     document.querySelector('input[name=search-key-word').addEventListener('input',(e)=>{
         var imgs = gImgs.filter((img, i) => {
             var word = img.keywords[0]
-            console.log(word);
             return(word.includes(e.target.value)) 
         }) 
+        var txt = '';
+        imgs.forEach(img=>{
+            console.log(img.keywords[0]);
+            txt += `${img.keywords[0]} - `
+        })
+        console.log(txt);
+        document.querySelector('.search-word').innerText = txt
         renderGallery(imgs)
  
          
@@ -67,19 +73,6 @@ function renderCanvas() {
     renderMeme(gMeme)
 }
 
-function renderMeme(meme){
-    renderImg(meme.selectedImgId)
-    console.log('render Meme');
-    meme.lines.forEach(line =>{
-        drawLine(line)
-        console.log(line);
-    })
-    meme.emojis.forEach(emoji =>{
-        drawEmoji(emoji)
-        console.log(emoji);
-    })
-}
-
 function setLineTxt(){
     var inputEl = document.querySelector('input[name=txt-mem]')
     inputEl.focus()
@@ -90,68 +83,7 @@ function setLineTxt(){
         gLine = createLine(currLine, gSets.x, gSets.y, gSets.fontSize, gSets.fillStyle, gSets.strokeStyle)
         drawLine(gLine) // click add-btn and push to model
         gClickedLine = null
-        
     })
-    
-}
-
-function onClickEmoji(id){
-    var emoji =  createEmoji(id)
-    renderEmoji(id)
-    gEmoji = emoji
-    gClickedEmoji = emoji
-    gMeme.emojis.push(emoji)
-}
-
-function isEmojiClicked(pos){
-    var emojis = gMeme.emojis
-    emojis.some(emoji =>{
-        var width = emoji.x + emoji.size
-        var height = emoji.y + emoji.size
-            if(pos.x >= emoji.x && pos.x <= (emoji.x + width) && pos.y >= emoji.y && pos.y <= (emoji.y+height)){
-            gClickedLine = null
-            gClickedEmoji = emoji
-            gEmoji = emoji
-            setEmojiDrag(true, emoji)
-            gStartPos = pos
-            document.body.style.cursor = 'grabbing'
-        }
-    })
-
-}
-
-function isLineClicked(pos){
-    var lines = gMeme.lines
-    lines.some(line => {
-        var txtMeasure = gCtx.measureText(line.txt)
-        var widthTxt = txtMeasure.width
-        var heightTxt = (txtMeasure.fontBoundingBoxAscent/2)
-      
-        if(pos.x >= line.x && pos.x <= (line.x + widthTxt) && pos.y >= (line.y - heightTxt) && pos.y <= (line.y + heightTxt)){
-            gClickedEmoji = null
-            gClickedLine = line
-            gLine = line
-            setLineDrag(true, line)
-            gStartPos = pos
-            document.body.style.cursor = 'grabbing'
-        }
-    })
-}
-
-function getEvPos(ev) {
-    var pos = {
-        x: ev.offsetX,
-        y: ev.offsetY
-    } 
-    if (gTouchEvs.includes(ev.type)) {
-        ev.preventDefault()
-        ev = ev.changedTouches[0]
-        pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-        }
-    }
-    return pos
 }
 
 function onDown(ev) {
@@ -240,16 +172,6 @@ function addMouseListeners() {
     gCanvas.addEventListener('mouseup', onUp)
 }
 
-function setLineDrag(isDrag, clickedLine){
-    clickedLine.isDrag = isDrag
-}
-
-function setEmojiDrag(isDrag, clickedEmoji) {
-    clickedEmoji.isDrag = isDrag
-}
-
-
-
 function toggleMenu(){
     document.body.classList.toggle('menu-open')
     document.querySelector('.modal').classList.toggle('show-modal')
@@ -266,19 +188,6 @@ function onLucky(){
     onImgSelected(imgId)
 }
 
-// function filterGallery() {
-//      document.querySelector('input[name=search-key-word').addEventListener('input',(e)=>{
 
-//        var imgs = gImgs.filter((img) => {
-//            var words = img.keywords
-//            return e.target.value.includes(...words)
-//        }) 
-//        renderGallery(imgs)
-
-        
-//     })
-// }
-       
-        
 
 

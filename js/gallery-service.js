@@ -16,7 +16,6 @@ function getImgs(){
     return gImgs
 }
 
-
 var keywords = [
     'trump',
     'dog',
@@ -39,8 +38,6 @@ var keywords = [
     'putin',
     'toy',
 ]
-
-
 
 function setKeywords(keywords){
     gImgs.forEach((img, i) => {

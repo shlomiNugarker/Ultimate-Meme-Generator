@@ -23,6 +23,14 @@ function drawLine(line){
   gCtx.strokeText(line.txt, line.x, line.y);
 }
 
+function setLineDrag(isDrag, clickedLine){
+  clickedLine.isDrag = isDrag
+}
+
+function setEmojiDrag(isDrag, clickedEmoji) {
+  clickedEmoji.isDrag = isDrag
+}
+
 function clearCanvas() {
   gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
 }
@@ -35,6 +43,40 @@ function createEmoji(id){
       size: 100,
       isDrag: false,
   }
+}
+
+function isEmojiClicked(pos){
+  var emojis = gMeme.emojis
+  emojis.some(emoji =>{
+      var width = emoji.x + emoji.size
+      var height = emoji.y + emoji.size
+          if(pos.x >= emoji.x && pos.x <= (emoji.x + width) && pos.y >= emoji.y && pos.y <= (emoji.y+height)){
+          gClickedLine = null
+          gClickedEmoji = emoji
+          gEmoji = emoji
+          setEmojiDrag(true, emoji)
+          gStartPos = pos
+          document.body.style.cursor = 'grabbing'
+      }
+  })
+}
+
+function isLineClicked(pos){
+  var lines = gMeme.lines
+  lines.some(line => {
+      var txtMeasure = gCtx.measureText(line.txt)
+      var widthTxt = txtMeasure.width
+      var heightTxt = (txtMeasure.fontBoundingBoxAscent/2)
+    
+      if(pos.x >= line.x && pos.x <= (line.x + widthTxt) && pos.y >= (line.y - heightTxt) && pos.y <= (line.y + heightTxt)){
+          gClickedEmoji = null
+          gClickedLine = line
+          gLine = line
+          setLineDrag(true, line)
+          gStartPos = pos
+          document.body.style.cursor = 'grabbing'
+      }
+  })
 }
 
 function downloadImg(elLink) {

@@ -25,24 +25,12 @@ function onClearCanvas(){
     focusInput()
 }
 
-function setBorder(el){
-    var btns = document.querySelectorAll('button')
-    btns.forEach(btn =>{
-        btn.style.border = 'none'
-    })
-    el.style.border = '1px solid green'
-}
-
-function focusInput(){
-    document.querySelector('input[name=txt-mem]').focus()
-}
-
-function getColor1() {
-    return document.querySelector('input[name=color1]').value
-}
-
-function getColor2() {
-    return document.querySelector('input[name=color2]').value
+function onClickEmoji(id){
+    var emoji =  createEmoji(id)
+    renderEmoji(id)
+    gEmoji = emoji
+    gClickedEmoji = emoji
+    gMeme.emojis.push(emoji)
 }
 
 // onClicks
@@ -214,6 +202,7 @@ function onClickColor1(){
     drawLine(gLine)
     focusInput()
 }
+
 function onClickColor2(){
     if(!gLine) return
     var color = getColor2()

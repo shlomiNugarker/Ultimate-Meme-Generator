@@ -3,24 +3,19 @@
     width: 30px;
 }
 .tools{
-    /* margin: 0 auto; */
     padding: 20px;
     text-align: center;
 }
-
 .main-editor{
     min-height: 300px;
     justify-content: center;
     align-items: center;
-    /* justify-content: space-around; */
     margin: 0 auto;
     max-width: 800px;
-    /* max-width: 90vw; */
-    max-width: 90vw;   
+    /* max-width: 90vw;    */
 }
 .share-container{
     position: fixed;
-    /* margin: auto; */
     background-color: #f08b26f5;
     top: 20vh;
     right: -100vw;
@@ -29,16 +24,26 @@
     opacity: 0;
     transition: all 0.3s;
 }
-
+.btn-share{
+    background-color: var(--clr1);
+}
 .sharre-container{
     min-height: 35px;
 }
 .to-drag-msg {
     color: red;
 }
-
-
-
+.btn-download{
+    background-color: var(--clr1);
+    border-radius: 7px;
+    padding: 3px;   
+}
+.file-input{
+    display: inline;
+    width: 245px;
+    border-radius: 7px;
+    padding: 3px;
+}
 .share-container>*:not(.share-container){
     background-color: rgb(195, 163, 112);
     padding: 10px;
@@ -47,11 +52,9 @@
 
 .open-share-container{
     right: 3vw;
-    /* margin: auto; */
     opacity: 1;
     transition: right 0.5s;
 }
-
 .btn-share{
     color: w;
     background-color: rgb(81, 81, 224);
